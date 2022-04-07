@@ -56,7 +56,7 @@ $users = [
 <html lang="en">
 
 <head>
-  <title>Title</title>
+  <title>Table</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -66,31 +66,48 @@ $users = [
 </head>
 
 <body>
-  <div class="container">
+  <div class="container ">
     <table class="table table-dark table-striped">
       <tbody>
 
-        <?php foreach ($users as  $user => $value) { ?>
+        <?php foreach ($users as  $user => $values) { ?>
           <tr>
 
-            <?php foreach ($value as  $a) { ?>
-              <td>
-                <?php
+            <?php foreach ($values as  $value) { ?>
+          
+
+<td>
+              <?php
+                $dataType=gettype($value);
+                if($dataType =='string'){
+
+                        echo "$value<br>";
+
+                }elseif($dataType =='integer'){
+                  echo "$value<br>";
+
+                }elseif($dataType =='array' || 'object'){
+                  foreach($value as $varNames => $varName){
+                echo("$varName<br>");
                 
-                  foreach($a as $genders => $gender){
-
-                    echo ("$gender<br>");
-                  };
+                  }}
                 ?>
-
-
-
+              
+              
+              
+              
+            
               </td>
-            <?php } ?>
+            
+              <?php } ?>
 
+              
+
+
+
+          
           </tr>
-        <?php } ?>
-
+          <?php } ?>
       </tbody>
     </table>
     <!-- Optional JavaScript -->
