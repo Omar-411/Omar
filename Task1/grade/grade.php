@@ -24,8 +24,8 @@ if ($_GET) {
     }elseif($per >= 0){ 
         $grade = "F";
     }elseif($per < 0){ 
-       $message= "<div class='alert alert-danger'>
-       Add Real Values Please!</div> ";}
+    $message= "<div class='alert alert-danger'>
+    Add Real Values Please!</div> ";}
 }
 
 

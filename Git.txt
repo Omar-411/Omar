@@ -1,0 +1,5 @@
+git init 
+git add . 
+git commit -m "edit"
+git remote add orgin https://github.com/Omar-AAyman/Omar.git
+git push origin main
