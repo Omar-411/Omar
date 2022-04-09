@@ -19,37 +19,126 @@ $users = [
       "school" => 'drawing',
       'home' => 'painting'
     ],
-
+    'Omar' => [
+      "school" => 'drawing',
+      'home' => 'painting'
+    ],
   ],
   (object)[
-    'id' => 2,
-    'name' => 'mohamed',
+    'id' => 1,
+    'name' => 'ahmed',
     "gender" => (object)[
       'gender' => 'm'
     ],
     'hobbies' => [
-      'swimming', 'running',
+      'football', 'swimming', 'running'
     ],
     'activities' => [
-      "school" => 'painting',
-      'home' => 'drawing'
+      "school" => 'drawing',
+      'home' => 'painting'
+    ],
+    'Omar' => [
+      "school" => 'drawing',
+      'home' => 'painting'
     ],
   ],
   (object)[
-    'id' => 3,
-    'name' => 'menna',
+    'id' => 1,
+    'name' => 'ahmed',
+    "gender" => (object)[
+      'gender' => 'm'
+    ],
+    'hobbies' => [
+      'football', 'swimming', 'running'
+    ],
+    'activities' => [
+      "school" => 'drawing',
+      'home' => 'painting'
+    ],
+    'Omar' => [
+      "school" => 'drawing',
+      'home' => 'painting'
+    ],
+  ],
+  (object)[
+    'id' => 1,
+    'name' => 'ahmed',
+    "gender" => (object)[
+      'gender' => 'm'
+    ],
+    'hobbies' => [
+      'football', 'swimming', 'running'
+    ],
+    'activities' => [
+      "school" => 'drawing',
+      'home' => 'painting'
+    ],
+    'Omar' => [
+      "school" => 'drawing',
+      'home' => 'painting'
+    ],
+  ],
+  (object)[
+    'id' => 1,
+    'name' => 'ahmed',
+    "gender" => (object)[
+      'gender' => 'm'
+    ],
+    'hobbies' => [
+      'football', 'swimming', 'running'
+    ],
+    'activities' => [
+      "school" => 'drawing',
+      'home' => 'painting'
+    ],
+    'Omar' => [
+      "school" => 'drawing',
+      'home' => 'painting'
+    ],
+  ],
+  (object)[
+    'id' => 1,
+    'name' => 'ahmed',
     "gender" => (object)[
       'gender' => 'f'
     ],
     'hobbies' => [
-      'running',
+      'football', 'swimming', 'running'
     ],
     'activities' => [
-      "school" => 'painting',
-      'home' => 'drawing'
+      "school" => 'drawing',
+      'home' => 'painting'
+    ],
+    'Omar' => [
+      "school" => 'drawing',
+      'home' => 'painting'
+    ],
+    
+  ],
+
+  (object)[
+    'id' => 1,
+    'name' => 'Omar',
+    "gender" => (object)[
+      'gender' => 'f'
+    ],
+    'hobbies' => [
+      'football', 'Kick Boxing'
+    ],
+    'activities' => [
+      "school" => 'Writing',
+      'home' => 'Football'
+    ],
+    'Omar' => [
+      "school" => 'Writing',
+      'home' => 'Football'
     ],
   ],
-];
+
+
+
+]
+
 ?>
 
 <!doctype html>
@@ -74,40 +163,47 @@ $users = [
           <tr>
 
             <?php foreach ($values as  $value) { ?>
-          
+              <td>
 
-<td>
-              <?php
-                $dataType=gettype($value);
-                if($dataType =='string'){
+                <?php
+                $dataType = gettype($value);
 
-                        echo "$value<br>";
+                if ($dataType == 'array' || $dataType == 'object') {
 
-                }elseif($dataType =='integer'){
-                  echo "$value<br>";
+                  foreach ($value as $varNames => $varName) {
 
-                }elseif($dataType =='array' || 'object'){
-                  foreach($value as $varNames => $varName){
-                echo("$varName<br>");
-                
-                  }}
+                          if($varName == 'm'){
+
+                            echo("male");
+
+                          }elseif($varName == 'f'){
+                            echo("female");
+
+                          }else{
+                            echo ("{$varName}<br>");
+                          }
+
+                      }
+                } else {
+
+                  echo ("{$value}<br>");
+                }
                 ?>
-              
-              
-              
-              
-            
+
+
+
+
               </td>
-            
-              <?php } ?>
 
-              
+            <?php } ?>
 
 
 
-          
+
+
+
           </tr>
-          <?php } ?>
+        <?php } ?>
       </tbody>
     </table>
     <!-- Optional JavaScript -->
