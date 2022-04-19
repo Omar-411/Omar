@@ -1,22 +1,11 @@
 <?php
 session_start();
 if ($_POST) {
-    $phoneNumber = $_POST['phoneNumber'];
-    $errors = [];
 
-    // Phone Number Validation
-
-    if (empty($phoneNumber)) {
-        $errors['phoneNumber'] = "<div class='text-danger font-weight-bold '> Your Phone Number Is Required </div>";
-    }elseif ($phoneNumber <= 999999999){
-        $errors['phoneNumber'] = "<div class='text-danger font-weight-bold '> Your Phone Number Must Be 11 Digits Like : 01123456789 </div>";
-    }
-
-
-    if (empty($errors)) {
-        $_SESSION['phoneNumber'] = $phoneNumber;
-        header('location:review.php');
-    }
+        $_SESSION['subscriperName'] =  $_POST['subscriperName'];
+        $_SESSION['familyMembers'] =  $_POST['familyMembers'];
+        header('location:sports.php');
+    
 }
 
 ?>
@@ -34,27 +23,34 @@ if ($_POST) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-     <!-- Bootstrap CSS -->
-     <link href="../BS5-Template/css/all.min.css" type="text/css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="../BS5-Template/css/all.min.css" type="text/css" rel="stylesheet">
     <link href="../BS5-Template/css/bootstrap.css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
 <body>
 
-    <div class="container py-4 my-4 bg-dark text-center">
-        <h2 class=" my-2 text-light"> Hospital</h2>
+    <div class="container py-4 my-4 bg-dark text-white text-center">
+        <h2 class=" my-2 text-warning">( Club )</h2>
 
         <div class="row ">
             <div class="col-6 offset-3 my-3">
                 <form method="POST">
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">Phone Number</span>
-                        <input type="number" class="form-control" name="phoneNumber">
+                    <div class="input-group mb-2 ">
+                        <span class="input-group-text" id="basic-addon1">Member Name</span>
+                        <input type="text" class="form-control" name="subscriperName" value="<?= $subscriperName ??  ""  ?>" required>
                     </div>
-                    <?= $errors['phoneNumber'] ?? "" ?>
+                    <small class="form-text text-muted">Club subscribtion starts with 10,000 EGP</small>
 
-                    <button class="btn btn-outline-light w-25  my-3">Submit</button>
+
+                    <div class="input-group mt-4 mb-2">
+                        <span class="input-group-text" id="basic-addon1">Count of Family Members</span>
+                        <input type="number" class="form-control" name="familyMembers" value="<?= $familyMembers ??  ""  ?>" required>
+                    </div>
+                    <small class="form-text text-muted" >Cost of each member is 2,500 EGP</small><br>
+
+                    <button class="btn btn-outline-warning w-25 my-4">Subscribe</button>
                 </form>
             </div>
         </div>
