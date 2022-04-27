@@ -26,14 +26,14 @@ for ($i = 1; $i <=  $_SESSION['familyMembers']; $i++) {
             
         $memberSports .="
         <div class='form-group my-3' >
-        <label class=' fs-4 fw-bold mt-3' for='memberName'> Member ".$i." </label>
+        <label class=' fs-4 fw-bold mt-3' > Member ".$i." </label>
         <input type='text' class='form-control my-3 text-center ' name='members[member". $i ."][memberName]' placeholder='Enter Member Name'required>";
 
         foreach ($_SESSION['sports'] as $sport => $price) {
             global $memberSports;
             $memberSports .= "<div class='form-check '>
                 <input class='form-check-input' type='checkbox' id='checkbox' name='members[member". $i ."][memberSports][" . $sport ."]' value='" . $price . "' >
-                <label class='form-check-label' for='checkbox'> " .$sport ." " . $price . " EGP</label>
+                <label class='form-check-label'> " .$sport ." " . $price . " EGP</label>
             </div>";
         }
         }
