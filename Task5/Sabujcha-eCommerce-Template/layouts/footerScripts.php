@@ -14,3 +14,9 @@
     </body>
 
 </html>
+
+<?php
+
+unset($_SESSION['errorsArray']);
+unset($_SESSION['oldData']);
+?>

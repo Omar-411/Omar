@@ -1,7 +1,9 @@
 <?php
 
 $title = "Login";
+
 include_once "layouts/header.php";
+include_once "App/Http/Middlewares/Guest.php";
 include_once "layouts/navbar.php";
 include_once "layouts/breadcrumb.php";
 ?>
@@ -20,18 +22,29 @@ include_once "layouts/breadcrumb.php";
                         <div id="lg1" class="tab-pane active">
                             <div class="login-form-container">
                                 <div class="login-register-form">
-                                    <form action="#" method="post">
+                                    <form action="App/Http/Post/login.php" method="post">
+
+                                        <!-- To Disply All  Errors -->
+                                        <!-- <?= getAllErrors() ?> -->
+
+                                        <!-- To Disply Another Errors -->
+                                        <?= getError('wentWrong') ?>
+
                                         <div class="form-group">
-                                            <label for="user-name">Username</label>
-                                            <input type="email" name="user_name">
+                                            <label for="email">Username</label>
+                                            <input type="email" name="email" value="<?= oldData('email') ?>">
+                                            <?= getError('email') ?>
+
                                         </div>
                                         <div class="form-group">
-                                            <label for="user-password">Password</label>
-                                            <input type="password" name="user_password">
+                                            <label for="password">Password</label>
+                                            <input type="password" name="password">
+                                            <?= getError('password') ?>
+
                                         </div>
                                         <div class="button-box">
                                             <div class="login-toggle-btn">
-                                                <input type="checkbox">
+                                                <input type="checkbox" name="remember_me">
                                                 <label>Remember me</label>
                                                 <a href="#">Forgot Password?</a>
                                             </div>
@@ -51,5 +64,5 @@ include_once "layouts/breadcrumb.php";
 
 <?php
 include_once "layouts/footer.php";
-include_once "layouts/footer-scripts.php";
+include_once "layouts/footerScripts.php";
 ?>

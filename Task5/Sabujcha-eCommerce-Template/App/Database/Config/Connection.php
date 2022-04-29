@@ -7,28 +7,24 @@ use mysqli;
 class Connection
 {
 
-    protected $hostname = 'localhost';
-    protected $username = 'root';
-    protected $password = '';
-    protected $database = 'nti_ecommerce';
-    protected $port = 3306;
-
+    protected $DBhostName = 'localhost';
+    protected $DBusername = 'root';
+    protected $DBpassword = '';
+    protected $DBdatabase = 'nti_ecommerce';
+    protected $DBport = 3306;
+    public mysqli $con;
     public function __construct()
     {
-        $con = new mysqli(
-            $this->hostname,
-            $this->username,
-            $this->password,
-            $this->database,
-            $this->port
+        $this->con = new mysqli(
+            $this->DBhostName,
+            $this->DBusername,
+            $this->DBpassword,
+            $this->DBdatabase,
+            $this->DBport
         );
+    }
 
-
-        // // Check  Databese Connection 
-        // if ($con->connect_error) {
-        //     echo "Connection Filed :" . $con->connect_error;
-        //     die;
-        // }
-        // echo "Connected Successfully";
+    public function __destruct () {
+        $this->con->close();
     }
 }
